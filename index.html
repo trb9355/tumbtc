@@ -1,0 +1,475 @@
+<DOCTYPE! html>
+<html>
+<body>
+<style>
+body {
+              background-color:#999999;
+              font-family: 'Oswald', sans-serif;
+      }
+p
+{
+  color:#000000;
+  font-size:20px;
+}
+
+.textBox
+{
+  height:30px;
+  width:300px;
+}
+
+button
+{
+  height:30px;
+  width:150px;
+  border-radius:8px;
+  padding:10px;
+  font-size:20px;
+  font-family: 'Oswald', sans-serif;
+  height:52px;
+  cursor:pointer;
+  background-color:wheat;
+}
+</style>
+</body>
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+        <p style="color:wheat;font-size:55px;text-align:center;">Pay and Verify!</p>
+
+<center>
+<p0>BİTCOİN NETWORK!* PRİCE ; -.007</p0>
+<p id="p1">0.007</p>
+  <p109>Payment Addres</p109>
+<p id="p2">1Hsx9R9u82XrFRazn55nHTUuXs8BJd8PM8</p><br/>
+
+<button onclick="copyToClipboard('#p1')">Copy Price</button>
+<button onclick="copyToClipboard('#p2')">Copy Addres</button>
+  
+
+</center>
+<script>
+function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+
+</script>
+</html>
+
+
+
+
+
+<DOCTYPE! html>
+<html>
+<body>
+<style>
+@charset "UTF-8";
+:root {
+  --dark: #454549;
+  --light: #fff;
+  --grey: #959598;
+  --mist: #eee;
+  --shadow: rgba(0,0,0,.4);
+  --action: #0ebeff;
+  --ok: #63bd66;
+  --alert: #a6da0b;
+  --line: .15ch;
+  --line-color: var(--dark);
+}
+
+.pop-tart {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 55%;
+  padding: 1em;
+  background: var(--light);
+  border-style: solid;
+  border-width: var(--line) 0 0 var(--line);
+  transform: translateY(110%);
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+.pop-tart header {
+  margin: -1em -1em 1em -1em;
+  background: none;
+  color: inherit;
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pop-tart ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pop-tart li {
+  position: relative;
+  text-align: center;
+  line-height: 1.4;
+}
+.pop-tart li + li {
+  margin-top: 1em;
+}
+.pop-tart .x {
+  cursor: pointer;
+  color: var(--action);
+  opacity: 0.7;
+}
+
+.delay {
+  color: var(--action);
+  opacity: 0;
+}
+
+.show-pop-tart .pop-tart {
+  transform: translateY(0%);
+}
+.show-pop-tart .content {
+  pointer-events: none;
+  opacity: 0.4;
+}
+.show-pop-tart .delay {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 3s;
+}
+
+.thinker {
+  position: absolute;
+  top: calc(100% + 1.3em);
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  font-size: 1.5em;
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+}
+.thinker::after {
+  content: "";
+  color: var(--action);
+}
+.thinker.spin::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  width: 1em;
+  height: 1em;
+  border: var(--line) solid var(--mist);
+  border-radius: 1em;
+  border-right-color: inherit;
+}
+
+.show-pop-tart .thinker {
+  opacity: 1;
+}
+.show-pop-tart .thinker::after {
+  -webkit-animation: dotdotdot 0.5s infinite alternate;
+          animation: dotdotdot 0.5s infinite alternate;
+}
+.show-pop-tart .thinker.spin::after {
+  -webkit-animation: spin 0.5s infinite linear;
+          animation: spin 0.5s infinite linear;
+}
+.show-pop-tart.step-verified .thinker {
+  opacity: 0;
+}
+.show-pop-tart.step-verified .thinker::after {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.content {
+  flex: 0 0 100%;
+  padding: 1em;
+  overflow: auto;
+  will-change: transform;
+  transform: translateX(0%);
+  transition: transform 0.3s ease-out;
+}
+
+[step="2"] .content {
+  transform: translateX(-100%);
+}
+
+input, button {
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  border-radius: 0.2em;
+  background: var(--dark);
+  color: var(--light);
+  opacity: 1;
+  outline: none;
+  cursor: pointer;
+}
+input[disabled], button[disabled] {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+input.primary:not([disabled]), button.primary:not([disabled]) {
+  background: var(--action);
+}
+input.cancel, button.cancel {
+  background: transparent;
+  color: var(--action);
+}
+
+button {
+  background: var(--dark);
+  color: var(--light);
+  padding: 0.65em 1.3em;
+}
+
+input {
+  background: var(--mist);
+  color: var(--dark);
+  padding: 0.65em;
+}
+input::-moz-placeholder {
+  color: var(--dark);
+  opacity: 0.5;
+}
+input:-ms-input-placeholder {
+  color: var(--dark);
+  opacity: 0.5;
+}
+input::placeholder {
+  color: var(--dark);
+  opacity: 0.5;
+}
+input + button {
+  border-radius: 0 0.2em 0.2em 0;
+  margin-left: -0.2em;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 50vh;
+  min-width: 20em;
+  min-height: 15em;
+  border: var(--line) solid var(--line-color);
+  border-radius: 0.3em;
+  overflow: hidden;
+  background: var(--light);
+  box-shadow: 0 1em 3em -1em var(--shadow);
+}
+
+header {
+  padding: 1em;
+  border-bottom: var(--line) solid var(--line-color);
+  background: var(--alert);
+  color: var(--light);
+}
+
+section {
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+footer {
+  flex: none;
+  border-top: var(--line) solid var(--line-color);
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  background: var(--mist);
+}
+footer button {
+  border-radius: 0;
+}
+
+@-webkit-keyframes dotdotdot {
+  0% {
+    content: "•";
+  }
+  25% {
+    content: "••";
+  }
+  50% {
+    content: "•••";
+  }
+  75% {
+    content: "••••";
+  }
+  100% {
+    content: "•••••";
+  }
+}
+
+@keyframes dotdotdot {
+  0% {
+    content: "•";
+  }
+  25% {
+    content: "••";
+  }
+  50% {
+    content: "•••";
+  }
+  75% {
+    content: "••••";
+  }
+  100% {
+    content: "•••••";
+  }
+}
+@-webkit-keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: calc(1em + 1vmin);
+  color: var(--dark);
+  background: var(--light);
+}
+
+h3 {
+  font-weight: 200;
+  opacity: 0.7;
+}
+
+h3, h4, p {
+  margin: 0;
+}
+h3 + *, h4 + *, p + * {
+  margin-top: 1em;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+</style>
+</body>
+<main>
+  <article step="1">
+    <header>
+      <h3></h3>
+    </header>
+    <section>
+      <div class="content step1">
+       
+        <p><b>1.</b> <u>Complete the payment.</u> </p>
+        <p><b>2.</b> <u>Verify transfer</u> </p>
+       
+  
+        <p class="nowrap"><input type="text" value="" placeholder="#usdt-transfernumber" /><button class="test">Verify</button></p>
+      </div>
+      <div class="content step2">
+        <h4>Step 2:Check successful!</h4>
+        <p>Bitcoin transfer number is invalid. Complete the payment!</p>
+        <p><button class="primary reset">Reset</button></p>
+      </div>
+      <div class="pop-tart">
+        <header>
+          <span>Verifying</span>
+
+          <span class="x">&times;</span>
+        </header>
+        <ul>
+          <li>
+            <div class="whatever">whatever</div>
+            <div class="thinker spin"></div>
+          </li>
+          <li class="delay"><i class="fa fa-check-circle fa-2x"></i></li>
+        </ul>
+      </div>
+    </section>
+    <footer>
+      <button class="primary next" disabled>Next</button>
+    </footer>
+  </article>
+</main>
+
+<script>
+const article = document.querySelector('article')
+const next = document.querySelector('.next')
+const delay = document.querySelector('.delay')
+const input = document.querySelector('input')
+const whatever = document.querySelector('.whatever')
+
+delay.addEventListener('transitionend', (e) => {
+  article.classList.add('step-verified')
+  next.removeAttribute('disabled')
+}, false)
+
+input.addEventListener('change', (e) => {
+  whatever.innerHTML = e.target.value || 'whatever.'
+}, false)
+
+document.addEventListener('click', (e) => {
+  let step = article.getAttribute('step')
+  let css = Array.from(e.target.classList)
+  // manage pop-tart state
+  if(css.includes('test')) {
+    article.classList.add('show-pop-tart')
+  }
+  else if(css.includes('x')) {
+    article.classList.remove('show-pop-tart')
+    article.classList.remove('step-verified')
+  }
+  else if(css.includes('reset')) {
+    article.classList.remove('step-verified')
+    input.value = ''
+    whatever.innerHTML = 'whatever.'
+  }
+  else if(css.includes('next')) {
+    next.setAttribute('disabled', 'disabled')
+    article.classList.remove('show-pop-tart')
+    article.classList.remove('step-verified')
+  }
+  // set step
+  if(css.includes('next') || css.includes('reset')) {
+    step = css.includes('reset') ? 1 : 2
+    article.setAttribute('step', step)
+  }
+}, false)
+
+
+</script>
+
+
+
+</html>
